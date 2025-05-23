@@ -32,6 +32,12 @@ First, navigate to the project directory:
 cd /path/to/AIRadioConverter
 ```
 
+Then, make the scripts executable (this is a one-time setup):
+
+```bash
+chmod +x convert_and_speedup_wav/convert_wav_to_m4a_and_speedup.sh speedup_m4a_only/speedup_existing_m4a.sh
+```
+
 ### 1. Convert WAV to M4A and Speed Up
 
 1. Place your WAV files in the `convert_and_speedup_wav/input_wav` directory
@@ -66,13 +72,16 @@ cd /path/to/AIRadioConverter
 
 このプロジェクトは、主に NotebookLM で作成した音声概要ファイルの管理と活用を目的としています。NotebookLM からダウンロードされる WAV 形式のファイルは、そのままではサイズが大きく、個人利用には少々扱いにくいと感じていました。そこで、Mac との相性が良く、ファイルサイズを抑えられる M4A 形式への変換 を考えました。
 
-個人的なニーズとして、長い音声コンテンツを効率的に聴くために 再生速度を 1.5 倍速に一括で変更 したかったため、超便利ツールとして名高い[ffmpeg](https://ffmpeg.org/) を使っていました。
+個人的なニーズとして、長い音声コンテンツを効率的に聴くために 再生速度を 1.5 倍速に一括で変更したかったため、超便利ツールとして名高い[ffmpeg](https://ffmpeg.org/) を使っていました。
 
 しかし、手動でコマンドを実行していましたが、毎回ターミナルで操作するのは手間がかかりますし、コマンドの管理も煩雑になります。そこで、これらの操作を自動化しようと思ったのが今回 shell script を書くことにしたきかっけです。コード化しておけばバージョン管理も Git でできて便利なメリットもあります。
 
-音質についても考慮しました。個人的に QuickTime Player で簡単なファイル編集を行うことがありますが、WAV から M4A に変換したファイルをさらに倍速処理すると、若干音がこもるように感じられました。そのため、速度調整時のビットレートは 64kbps くらいが、ラジオレベルの聴きやすさを保ちつつ、音質の劣化を抑えるのにちょうど良いかな、といういまのところの感想です。
+音質についても考慮しました。個人的に QuickTime Player で簡単なファイル編集を行うことがありますが、WAV から M4A に変換したファイルをさらに倍速処理すると、若干音がこもるように感じられました。そのため、速度調整時のビットレートは 64kbps くらいが、ラジオレベルの聴きやすさを保ちつつ、音質の劣化を抑えるのにちょうど良いかな、という今のところの感想です。
 
-もちろん、一度編集したファイルを何度も再編集すると劣化の心配はありますが、速度変更以外の編集であれば、たとえば [LosslessCut](https://github.com/mifi/lossless-cut) のようなツールを使えば、M4A 形式でも目立った劣化は気にならないと考えています。 LosslessCut は実際使っていますがとっても便利です。
+> NOTE:
+> M4A の基盤である Advanced Audio Coding (AAC) codec が非可逆圧縮のため、一度圧縮された音声を再度加工（再エンコード）する場合はさらなる劣化（多段階圧縮劣化）が避けられなません。
+
+M4A 形式のファイルを何度も再編集すると劣化の心配はありますが、速度変更以外の編集であれば、たとえば [LosslessCut](https://github.com/mifi/lossless-cut) のようなツールを使えば、M4A 形式でも目立った劣化は気にならないと考えています。 LosslessCut は実際使っていますがとっても便利です。
 
 ■ まとめ
 
