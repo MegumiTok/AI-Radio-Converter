@@ -1,0 +1,26 @@
+# 入力ディレクトリの中身を無視
+convert_and_speedup_wav/input_wav/*
+!convert_and_speedup_wav/input_wav/.gitkeep
+
+# 出力ディレクトリの中身を無視
+convert_and_speedup_wav/output_m4a/*
+!convert_and_speedup_wav/output_m4a/.gitkeep
+
+# M4A倍速化用の入力ディレクトリの中身を無視
+speedup_m4a_only/input_m4a/*
+!speedup_m4a_only/input_m4a/.gitkeep
+
+# M4A倍速化用の出力ディレクトリの中身を無視
+speedup_m4a_only/output_m4a/*
+!speedup_m4a_only/output_m4a/.gitkeep
+
+# macOSのシステムファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# エディタの設定ファイル
+.vscode/
+.idea/
+*.swp
+*.swo 
