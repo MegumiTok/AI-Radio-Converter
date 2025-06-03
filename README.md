@@ -55,3 +55,5 @@ For detailed information about each tool and its usage, please refer to the indi
 
 - [本プロジェクトの目的など (2025-05-23)](docs/project-overview-2025-05-23.md)
 - [M4A 変換と倍速処理における音質と bitrate の分析 (2025-05-23)](docs/audio-analysis-2025-05-23.md)
+- [M4A ファイルへのメタデータ追加 開発方針検討（2025-06-03）](docs/add_metadata-2025-06-03-v1.md)
+- [M4A ファイルへのメタデータ追加 開発プロセスの振り返り（2025-06-03）](docs/add_metadata-2025-06-03-v2.md)
