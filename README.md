@@ -15,8 +15,12 @@ A collection of tools for audio file conversion and processing, specifically des
    - Optimized for post-conversion processing
 
 3. [Audio Bitrate Checker](check_audio_bitrate/README.md)
+
    - Checks the bitrate of audio files
    - Interactive command-line interface
+
+4. [Add Metadata to M4A](add_metadata/README.md)
+   - Adds metadata to M4A files (artist name and compilation flag)
 
 ## Prerequisites
 
@@ -30,7 +34,9 @@ A collection of tools for audio file conversion and processing, specifically des
 AIRadioConverter/
 ├── convert_and_speedup_wav/    # WAV to M4A conversion with speed-up
 ├── speedup_m4a_only/          # M4A speed-up only
-└── check_audio_bitrate/       # Bitrate checking tool
+├── check_audio_bitrate/       # Bitrate checking tool
+├── add_metadata/              # Metadata addition tool
+└── docs/                     # Developer's Notes and documentation
 ```
 
 ## Project Background
