@@ -1,5 +1,7 @@
 # M4A ファイルへのメタデータ追加
 
+> 🚧 **Note: This document contains initial design specifications. For the latest implementation details, please refer to the [README](../add_metadata/README.md).**
+
 ## 開発方針検討
 
 GitHub の共同創業者である Tom Preston-Werner が提唱する「Readme Driven Development」という考え方に興味を持ったので、今回はまずは README から開発を始めることにしました。
