@@ -1,72 +1,55 @@
 # AI Radio Converter
 
-A simple tool to convert WAV files to M4A format and speed up audio files. This tool provides two main functionalities:
+A collection of tools for audio file conversion and processing, specifically designed for managing audio summary files from NotebookLM.
 
-1. Convert WAV to M4A and speed up the audio
-2. Speed up existing M4A files
+## Tools
+
+1. [WAV to M4A Converter with Speed-up](convert_and_speedup_wav/README.md)
+
+   - Converts WAV files to M4A format and speeds up the audio
+   - Includes input/output directories for batch processing
+
+2. [M4A Speed-up Tool](speedup_m4a_only/README.md)
+
+   - Speeds up existing M4A files
+   - Optimized for post-conversion processing
+
+3. [Audio Bitrate Checker](check_audio_bitrate/README.md)
+   - Checks the bitrate of audio files
+   - Interactive command-line interface
 
 ## Prerequisites
 
 - macOS (tested on macOS 24.5.0)
 - ffmpeg installed on your system
+- Python 3.x (for bitrate checker)
 
 ## Directory Structure
 
 ```text
 AIRadioConverter/
-├── convert_and_speedup_wav/
-│   ├── input_wav/      # Place your WAV files here
-│   ├── output_m4a/     # Converted and speed-up files will be here
-│   └── convert_wav_to_m4a_and_speedup.sh
-└── speedup_m4a_only/
-    ├── input_m4a/      # Place your M4A files here
-    ├── output_m4a/     # Speed-up files will be here
-    └── speedup_existing_m4a.sh
+├── convert_and_speedup_wav/    # WAV to M4A conversion with speed-up
+├── speedup_m4a_only/          # M4A speed-up only
+└── check_audio_bitrate/       # Bitrate checking tool
 ```
 
-## Usage
+## Project Background
 
-First, navigate to the project directory:
+This project was created to manage and process audio summary files from NotebookLM. The main goals are:
 
-```bash
-cd /path/to/AIRadioConverter
-```
+- Convert WAV files to M4A format for better file size management
+- Speed up audio playback to 1.5x for efficient listening
+- Maintain audio quality while reducing file size
+- Provide tools for audio file analysis
 
-Then, make the scripts executable (this is a one-time setup):
-
-```bash
-chmod +x convert_and_speedup_wav/convert_wav_to_m4a_and_speedup.sh speedup_m4a_only/speedup_existing_m4a.sh
-```
-
-### 1. Convert WAV to M4A and Speed Up (WIP)
-
-1. Place your WAV files in the `convert_and_speedup_wav/input_wav` directory
-2. Run the script:
-
-   ```bash
-   ./convert_and_speedup_wav/convert_wav_to_m4a_and_speedup.sh
-   ```
-
-3. The converted and speed-up files will be created in `convert_and_speedup_wav/output_m4a`
-
-### 2. Speed Up Existing M4A Files
-
-1. Place your M4A files in the `speedup_m4a_only/input_m4a` directory
-2. Run the script:
-
-   ```bash
-   ./speedup_m4a_only/speedup_existing_m4a.sh
-   ```
-
-3. The speed-up files will be created in `speedup_m4a_only/output_m4a`
+For detailed information about each tool and its usage, please refer to the individual README files linked above.
 
 ## Notes
 
-- Audio files are speed up to 1.5x
-- For radio-like quality, a bitrate of 32-64kbps is recommended
-- When speed-up is applied, you might want to increase the bitrate slightly to compensate for quality loss
-- Original files are not modified
+- All tools are designed to work with macOS
+- Original files are never modified
 - Output files are named with "\_1.5x" suffix
+- For best results, use QuickTime Player for initial WAV to M4A conversion
 
 ## Developer's Notes
 
@@ -93,25 +76,25 @@ M4A 形式のファイルを何度も再編集すると劣化の心配はあり�
 
 今回ファイル圧縮界隈についても少し調べてみたのですが、人間が認知しないところをうまく誤魔化してファイルサイズを小さくしてる技術がとても面白いなって思いました。Codec の世界は興味深いですね。
 
-### M4A変換と倍速処理における音質とbitrateの分析
+### M4A 変換と倍速処理における音質と bitrate の分析
 
-QuickTime Playerと今回作成したスクリプトを用いて、WAVファイルからM4Aファイルへの変換、および倍速処理（1.5倍速）を行った際の音質とbitrateについて調査しました。
+QuickTime Player と今回作成したスクリプトを用いて、WAV ファイルから M4A ファイルへの変換、および倍速処理（1.5 倍速）を行った際の音質と bitrate について調査しました。
 
 ▷ 調査結果の概要
 
-テスト用のWAVファイルを用いて、以下の結果が得られました。
+テスト用の WAV ファイルを用いて、以下の結果が得られました。
 
-bitrateの確認には別で作成したスクリプト（`check_audio_bitrate/check_bitrate.py`）を使いました。
+bitrate の確認には別で作成したスクリプト（`check_audio_bitrate/check_bitrate.py`）を使いました。
 
-|                                                          |           |      |               |
-| -------------------------------------------------------- | --------- | ---- | ------------- |
-| 処理方法                                                     | bitrate   | 音質   | 備考            |
-| QuickTime Playerで変換                                      | 32.5 kbps | クリア  | 変換のみ          |
-| スクリプト（`convert_wav_to_m4a_and_speedup.sh`）で変換+倍速         | 70.8 kbps | 雑音あり |               |
-| QuickTime Playerで変換後、スクリプト（`speedup_existing_m4a.sh`）で倍速 | 68.3 kbps | 問題なし | 倍速処理のみスクリプト使用 |
+|                                                                          |           |          |                            |
+| ------------------------------------------------------------------------ | --------- | -------- | -------------------------- |
+| 処理方法                                                                 | bitrate   | 音質     | 備考                       |
+| QuickTime Player で変換                                                  | 32.5 kbps | クリア   | 変換のみ                   |
+| スクリプト（`convert_wav_to_m4a_and_speedup.sh`）で変換+倍速             | 70.8 kbps | 雑音あり |                            |
+| QuickTime Player で変換後、スクリプト（`speedup_existing_m4a.sh`）で倍速 | 68.3 kbps | 問題なし | 倍速処理のみスクリプト使用 |
 
 ▷ 考察と推奨
 
-この結果から、現時点ではQuickTime PlayerでM4Aに変換した後、スクリプト（`speedup_existing_m4a.sh`）で倍速処理を行う方法がよろしいかと思いました。個人的にこの方法でも特に手間ではないのでとりあえず満足です。
+この結果から、現時点では QuickTime Player で M4A に変換した後、スクリプト（`speedup_existing_m4a.sh`）で倍速処理を行う方法がよろしいかと思いました。個人的にこの方法でも特に手間ではないのでとりあえず満足です。
 
 スクリプト（`convert_wav_to_m4a_and_speedup.sh`）による変換処理ではビットレートが不必要に高くなり、音質に雑音が入る問題が確認されました。今後、改善できればいいかもしれません。

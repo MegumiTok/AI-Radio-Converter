@@ -16,7 +16,7 @@ A simple command-line tool to check the bitrate of audio files interactively.
 2. Make the script executable:
 
    ```bash
-   chmod +x check_audio_bitrate/check_bitrate.py
+   chmod +x check_bitrate.py
    ```
 
 ## Usage
@@ -24,7 +24,7 @@ A simple command-line tool to check the bitrate of audio files interactively.
 1. Run the script:
 
    ```bash
-   ./check_audio_bitrate/check_bitrate.py
+   ./check_bitrate.py
    ```
 
 2. When prompted, enter the full path to your audio file:
@@ -49,10 +49,15 @@ A simple command-line tool to check the bitrate of audio files interactively.
 - Error handling for invalid files or paths
 - Checks both stream and format information for accurate bitrate detection
 
+## Related Tools
+
+- [WAV to M4A Converter with Speed-up](../convert_and_speedup_wav/README.md)
+- [M4A Speed-up Tool](../speedup_m4a_only/README.md)
+
 ## Example
 
 ```bash
-$ ./check_audio_bitrate/check_bitrate.py
+$ ./check_bitrate.py
 音声ファイルのビットレートを確認します。
 ファイルパスを入力してください（終了するには 'q' を入力）:
 > /Users/username/Music/song.m4a
