@@ -35,18 +35,18 @@ for file in "$input_dir"/*.m4a; do
   # -c:a aac: 音声コーデックをAACに指定
   # -b:a 64k: 音声のビットレートを64kbpsに指定
   # -vn: ビデオストリームを無視
-  ffmpeg -i "$file" -filter:a "atempo=1.5" -c:a aac -b:a 64k -vn "$output_dir/${filename}_1.5x.m4a"
+  ffmpeg -i "$file" -filter:a "atempo=1.5" -c:a aac -b:a 64k -vn "$output_dir/${filename}.m4a"
 
   # 最初のファイルの場合、変換後のビットレートを表示
   if [ "$first_file" = false ]; then
-    output_file="$output_dir/${filename}_1.5x.m4a"
+    output_file="$output_dir/${filename}.m4a"
     new_bitrate=$(get_bitrate "$output_file")
     echo "New bitrate: $((new_bitrate/1000))kbps"
     echo "Bitrate change: $((original_bitrate/1000))kbps -> $((new_bitrate/1000))kbps"
     first_file=true  # 最初のファイルの処理が終わったらフラグをリセット
   fi
 
-  echo "Finished: $output_dir/${filename}_1.5x.m4a"
+  echo "Finished: $output_dir/${filename}.m4a"
   echo "-----------------------------------"
 done
 
