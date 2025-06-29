@@ -21,6 +21,8 @@ for file in "$input_dir"/*.wav; do
   # -c:a aac: 音声コーデックをAACに指定
   # -b:a 64k: 音声のビットレートを64kbpsに指定
   ffmpeg -i "$file" -filter:a "atempo=1.5" -c:a aac -b:a 64k "$output_dir/${filename}_1.5x.m4a"
+  # ffmpeg -i "$file" -filter:a "atempo=1.7" -c:a aac -b:a 64k "$output_dir/${filename}_1.7x.m4a"
+
 
   echo "Finished: $output_dir/${filename}_1.5x.m4a"
   echo "-----------------------------------"
